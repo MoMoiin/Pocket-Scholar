@@ -17,6 +17,8 @@ class DisplayManager {
 public:
     DisplayManager();
     void init();
+    void showLoadingScreen(const char* message = nullptr);
+    void updateLoadingProgress(uint8_t percent);
     void setPartialWindow(int16_t x, int16_t y, int16_t w, int16_t h);
     void fillScreen(uint16_t color);
     void setCursor(int16_t x, int16_t y);
@@ -34,11 +36,20 @@ public:
     void setRotation(uint8_t rotation);
     int16_t width();
     int16_t height();
-    
+
 private:
+    void renderLoadingScreen();
+
     GxEPD2_BW<GxEPD2_213_B74, GxEPD2_213_B74::HEIGHT> epdDisplay;
     U8G2_FOR_ADAFRUIT_GFX u8g2;
     bool u8g2Ready = false;
+    bool loadingActive = false;
+    String loadingMessage;
+    uint8_t loadingProgress = 0;
+    int16_t loadingWindowX = 0;
+    int16_t loadingWindowY = 0;
+    int16_t loadingWindowW = 0;
+    int16_t loadingWindowH = 0;
 };
 
 extern DisplayManager displayManager;
