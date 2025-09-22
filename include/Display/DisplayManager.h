@@ -17,6 +17,7 @@ class DisplayManager {
 public:
     DisplayManager();
     void init();
+    void showMainMenu();
     void showLoadingScreen(const char* message = nullptr);
     void updateLoadingProgress(uint8_t percent);
     void setPartialWindow(int16_t x, int16_t y, int16_t w, int16_t h);
