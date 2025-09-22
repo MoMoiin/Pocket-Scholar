@@ -1,27 +1,31 @@
 #include <Arduino.h>
-#include "Controls/Config.h"
+
 #include <GxEPD2_BW.h>
 #include <Fonts/FreeMonoBold9pt7b.h>
 #include "Display/DisplayManager.h"
+#include "Controls/inputControls.h"
 
 void setup() {
 
   Serial.begin(115200);
 
   displayManager.init();
-
-  pinMode(BUTTON_O_PIN, INPUT_PULLUP);
-  pinMode(BUTTON_X_PIN, INPUT_PULLUP);
-  pinMode(BUTTON_LEFT_PIN, INPUT_PULLUP);
-  pinMode(BUTTON_RIGHT_PIN, INPUT_PULLUP);
+  inputcontrols.init();
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
 
-/* // put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
-} */
+
+
+
+/*     ButtonEvent evt;
+    if (inputcontrols.poll(evt)) {
+        Serial.print("Button ");
+        Serial.print(static_cast<int>(evt.id));
+        Serial.print(" action ");
+        Serial.print(static_cast<int>(evt.action));
+        Serial.print(" at ");
+        Serial.println(evt.atMillis);
+    } */
+}

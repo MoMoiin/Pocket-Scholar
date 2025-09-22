@@ -1,4 +1,4 @@
-#include "Menu/MenuSystem.h"
+/* #include "Menu/MenuSystem.h"
 
 
 MenuSystem::MenuSystem() : currentPage(MAIN_MENU), selectedBox(0), selectedItem(0), settingsEditing(false), settingsTopIndex(0), lastFullRefresh(0) {
@@ -15,3 +15,4 @@ void MenuSystem::HandleInput(char input) {
         // Handle 'right' button press
     }
 }
+ */
