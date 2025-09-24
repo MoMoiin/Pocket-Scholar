@@ -7,7 +7,7 @@ enum class ButtonAction : uint8_t { Press, Release, LongPress, Repeat };
 
 struct ButtonEvent { ButtonId id; ButtonAction action; uint32_t atMillis; };
 
-#define Debounce_MS 15
+#define Debounce_MS 10
 
 class InputControls {
 public:

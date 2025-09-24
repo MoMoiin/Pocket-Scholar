@@ -1,6 +1,7 @@
 #include "Display/DisplayManager.h"
 #include <Fonts/FreeMono9pt7b.h>
 #include <Fonts/FreeSansBold9pt7b.h>
+#include "Icons/mainMenu.h"
 
 // Global display manager instance used throughout the application
 DisplayManager displayManager;
@@ -21,21 +22,24 @@ void DisplayManager::showMainMenu(const char* const* items, size_t count, int se
         return;
     }
 
-    epdDisplay.setFullWindow();
+    epdDisplay.setPartialWindow(0,0,250,122);
     epdDisplay.firstPage();
     do {
-        epdDisplay.fillScreen(GxEPD_WHITE);
+        /* epdDisplay.fillScreen(GxEPD_WHITE); */
 
         const int16_t displayWidth = epdDisplay.width();
+        const int16_t displayHeight = epdDisplay.height();
         const int16_t headerHeight = 32;
         const int16_t itemHeight = 48;
         const int16_t verticalPadding = 6;
         const int16_t itemWidth = displayWidth / static_cast<int16_t>(count);
 
-        epdDisplay.setTextColor(GxEPD_BLACK);
+        
+
+/*         epdDisplay.setTextColor(GxEPD_BLACK);
         epdDisplay.setFont(&FreeSansBold9pt7b);
         epdDisplay.setCursor(12, 24);
-        epdDisplay.print(F("Pocket Scholar"));
+        epdDisplay.print(F("Pocket Scholar")); */
 
         epdDisplay.setFont(&FreeMonoBold9pt7b);
 
@@ -46,10 +50,10 @@ void DisplayManager::showMainMenu(const char* const* items, size_t count, int se
             const int16_t rectWidth = itemWidth - (verticalPadding * 2);
 
             if (selected) {
-                epdDisplay.fillRect(x + verticalPadding, y, rectWidth, itemHeight, GxEPD_BLACK);
+                epdDisplay.drawBitmap( x, verticalPadding, Book_icon, 64, 64, GxEPD_BLACK);
                 epdDisplay.setTextColor(GxEPD_WHITE);
             } else {
-                epdDisplay.drawRect(x + verticalPadding, y, rectWidth, itemHeight, GxEPD_BLACK);
+                epdDisplay.drawBitmap( x, verticalPadding, Folder_icon, 64, 64, GxEPD_BLACK);
                 epdDisplay.setTextColor(GxEPD_BLACK);
             }
 
