@@ -4,9 +4,12 @@ A very bad portable e-ink flashcard and dictionary device.
 ## Description
 Pocket-scholar is a very badly designed Esp32 - eink flash card reader, The point of the project was to create something using C++ and hardware.
 
+![20251108_210205](https://github.com/user-attachments/assets/8c659e05-9166-4b66-bf42-8a4955e19657)
+
 ## Features ##
 Current:
 - Eink + esp32 integration
+
 
 
 Planned:
